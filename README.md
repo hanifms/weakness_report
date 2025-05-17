@@ -6,6 +6,6 @@ Link 1 (insert link here)
 
 1. Flag 
 
-Link 2 ([insert link here](http://epic.iium.edu.my))
+Link 2 (http://epic.iium.edu.my)
 
 1. Flag
