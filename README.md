@@ -55,7 +55,7 @@ Link 1 (insert link here)
         Suppress version details at all layers.
 
     Responsible Team: Infrastructure
-    Target Remediation Date: 2025-06-05
+    
 
 2. Absence of Anti‑CSRF Tokens
 
@@ -82,7 +82,7 @@ Link 1 (insert link here)
         Verify token on every state‑changing request.
 
     Responsible Team: Application Dev
-    Target Remediation Date: 2025-06-10
+    
 
 3. Content Security Policy (CSP) Header Not Set
 
@@ -107,7 +107,7 @@ Link 1 (insert link here)
         Gradually tighten directives.
 
     Responsible Team: DevOps
-    Target Remediation Date: 2025-06-07
+    
 
 4. Subresource Integrity Missing
 
@@ -134,7 +134,7 @@ Link 1 (insert link here)
         Serve scripts over HTTPS only.
 
     Responsible Team: Front‑End Dev
-    Target Remediation Date: 2025-06-12
+    
 
 5. Vulnerable JS Libraries
 
@@ -163,7 +163,7 @@ Link 1 (insert link here)
         Automate vulnerability alerts on library updates.
 
     Responsible Team: Application Dev
-    Target Remediation Date: 2025-06-15
+    
 
 6. Cookies Without Secure Flags
 
@@ -190,7 +190,7 @@ Link 1 (insert link here)
         Enforce Secure flag when HTTPS is in use.
 
     Responsible Team: Back‑End Dev
-    Target Remediation Date: 2025-06-08
+    
 
 7. Missing Permissions Policy Header
 
@@ -213,7 +213,7 @@ Link 1 (insert link here)
         Start with a deny‑all policy and enable only needed features.
 
     Responsible Team: DevOps
-    Target Remediation Date: 2025-06-09
+    
 
 8. Missing Cross‑Origin Resource Policy
 
@@ -236,7 +236,7 @@ Link 1 (insert link here)
         Verify support in target browsers.
 
     Responsible Team: DevOps
-    Target Remediation Date: 2025-06-11
+    
 
 9. Information Disclosure via JS Comments
 
@@ -263,7 +263,7 @@ Link 1 (insert link here)
         Follow secure code‑review checklists.
 
     Responsible Team: Application Dev
-    Target Remediation Date: 2025-06-14
+    
 
 10. HTTPS/TLS Not Enforced
 
@@ -286,7 +286,7 @@ Link 1 (insert link here)
         Periodically scan for certificate expiry.
 
     Responsible Team: Infrastructure
-    Target Remediation Date: 2025-06-01
+    
 
 4. Recommendations & Next Steps
 
@@ -305,12 +305,17 @@ Link 1 (insert link here)
     Penetration Test: Engage a third‑party pen test post‑deployment for deeper coverage.
 
 Appendix
+
 OWASP ZAP generated report for this link can be downloaded at the top 
 ![image](https://github.com/user-attachments/assets/ff4d8c93-6dad-4c1d-9c52-483affce3f06)
 
 Prepared by:
+
 Team HAI
+
 Hanif Asyraf Bin Mohd Sabri
+
 hanifasyrafms@gmail.com
+
 25-5-2025
 
