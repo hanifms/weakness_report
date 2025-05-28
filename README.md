@@ -2,9 +2,35 @@
 group assignment (HAI)
 
 
-# Link 1 (insert link here)
+# Link 1 (http://ezpay.iium.edu.my)
 
-1. Flag 
+1. Executive Summary
+
+| Metric                        | Value   |
+| ----------------------------- | ------- |
+| Total Issues Identified       | 20      |
+| Critical Issues               | 0       |
+| High-Risk Issues              | 0       |
+| Medium-Risk Issues            | 6       |
+| Low-Risk/Informational Issues | 14      |
+| Remediation Status            | Pending |
+
+2. Summary of findings
+
+| Risk Level | Number of Issues | Example Vulnerability                        |
+| ---------- | ---------------- | ---------------------------------------------|
+| Critical   | 0                | —                                            |
+| High       | 0                | —                                            |
+| Medium     | 6                | Croos-Domain misconfiguration                |
+| Low        | 7                | Cookie without secure flag                   |
+| Info       | 7                | Information Disclodure - Suspicious comments |
+
+3. Detailed Findings
+
+1. 
+
+
+
 
 # Link 2 (http://epic.iium.edu.my)
 
