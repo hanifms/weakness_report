@@ -27,7 +27,229 @@ group assignment (HAI)
 
 3. Detailed Findings
 
-1. 
+1. Failure to Define Directive with no Fallback
+
+    Severity: Medium
+
+    Description: The Content Security Policy fails to define one of the directives that has no fallback. Missing/excluding them is the same as allowing anything.
+
+    Affected URL:
+
+        http://ezpay.iium.edu.my
+
+        http://ezpay.iium.edu.my/faq
+
+        http://ezpay.iium.edu.my/login
+
+    Business Impact: Hackers can inject harmful scripts, steal user data or hijack sessions. This can lead to data breaches, loss of user trust, and legal issues.
+
+    Classification: CWE‑693
+
+    Recommendation: Add all key CSP rules such as default-src, script-src and object-src.
+
+    Prevention Strategy:
+
+        Always define important CSP rules.
+
+        Test your policy with tools like CSP Evaluator.
+
+    Responsible Team: DevOps
+
+
+2. Wildcard Directive
+
+    Severity: Medium
+
+    Description: Content Security Policy (CSP) helps protect websites from attacks like XSS by allowing only trusted sources to load things like scripts, styles, images and media. However, the following rules are missing, too open or use wildcards which weakens security.
+
+    Affected URL:
+
+        http://ezpay.iium.edu.my/contact-us
+
+        http://ezpay.iium.edu.my/disclaimer
+
+    Business Impact: Weak CSP settings can let attackers run harmful scripts, steal data, or damage the website.
+   
+    Classification: CWE‑693
+
+    Recommendation: Use trusted CDNs or your own domain to serve content like JavaScript, CSS, fonts, and images.
+
+    Prevention Strategy:
+
+        Monitor CSP violation reports 
+
+        Work closely with developers to ensure new content is added using allowed sources only.
+
+    Responsible Team: Security team
+
+
+3. script-src unsafe-inline
+
+    Severity: Medium
+
+    Description: The script-src directive includes unsafe-inline, which allows inline JavaScript. This weakens CSP and can let attackers inject malicious scripts.
+
+    Affected URL:
+
+        http://ezpay.iium.edu.my/privacy-policy
+
+        http://ezpay.iium.edu.my/register
+
+    Business Impact: Attackers may exploit this to run harmful scripts, steal user data, or compromise the site.
+   
+    Classification: CWE‑693
+
+    Recommendation: Remove unsafe-inline from script-src.
+
+    Prevention Strategy: 
+
+        Use nonces or hashes instead of unsafe-inline.
+
+        Deploy in Report-Only mode first
+
+    Responsible Team: DevOps
+
+
+4. style-src unsafe-inline
+
+    Severity: Medium
+
+    Description: The style-src directive includes unsafe-inline, which allows inline CSS styles. This reduces CSP effectiveness and can be exploited to inject malicious styles.
+
+    Affected URL:
+
+        http://ezpay.iium.edu.my/home-alt
+
+        http://ezpay.iium.edu.my/services
+
+    Business Impact: Attackers could inject harmful CSS to manipulate the appearance of the site, trick users, or hide malicious content.
+   
+    Classification: CWE‑693
+
+    Recommendation: Remove unsafe-inline from style-src.
+
+    Prevention Strategy: 
+
+        Use nonces or hashes instead of unsafe-inline.
+
+        Move inline styles to external CSS files where possible.
+
+    Responsible Team: DevOps
+
+
+5. Cross-Domain Misconfiguration
+
+    Severity: Medium
+
+    Description: The web server has a CORS misconfiguration that allows any third-party website to make read requests to its APIs without authentication.
+   
+    Affected URL:
+
+        http://ezpay.iium.edu.my/payment/request
+
+    Business Impact: This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner.
+   
+    Classification: CWE‑264
+
+    Recommendation: Restrict CORS to allow only trusted domains.
+
+    Prevention Strategy: 
+
+        Use proper authentication and check permissions on all API endpoints.
+
+        Configure the server to specify allowed domains explicitly in the CORS policy.
+
+    Responsible Team: Security Team
+
+
+6. HTTP to HTTPS Insecure Transition in Form Post
+
+    Severity: Medium
+
+    Description: This check looks for insecure HTTP pages that host HTTPS forms. The issue is that an insecure HTTP page can easily be hijacked through MITM and the secure HTTPS form can be replaced or spoofed.
+   
+    Affected URL:
+
+        http://ezpay.iium.edu.my
+
+    Business Impact: Users may unknowingly submit sensitive data like passwords or payment info to fake or altered forms which can be data theft or fraud.
+   
+    Classification: CWE‑319
+
+    Recommendation: Serve all pages that collect or submit sensitive data entirely over HTTPS. Avoid mixing HTTP and HTTPS content.
+
+    Prevention Strategy: 
+
+        Redirect all HTTP traffic to HTTPS.
+
+        Review and update all forms to ensure they are hosted on secure HTTPS pages.
+
+    Responsible Team: DevOps
+
+
+7. Strict-Transport-Security Header Not Set
+
+    Severity: Low
+
+    Description: HTTP Strict Transport Security (HSTS) tells browsers to always use HTTPS when connecting to the site. Without this header, users might accidentally connect over insecure HTTP which can be intercepted.
+   
+    Affected URL:
+
+        http://ezpay.iium.edu.my/dashboard-cas
+
+        http://ezpay.iium.edu.my/flywire.png
+
+    Business Impact: Without HSTS, attackers can perform man-in-the-middle attacks by forcing users to connect over HTTP which could potentially leads to stealing or altering data.
+   
+    Classification: CWE‑319
+
+    Recommendation: Ensure that all assets such as images, scripts and styles are served over HTTPS to prevent security warnings and possible bypasses.
+
+    Prevention Strategy: 
+
+        Implement the HSTS header on all HTTPS responses.
+
+        Monitor and ensure no content is served over HTTP.
+
+    Responsible Team: Web Development 
+
+
+8. Big Redirect Detected (Potential Sensitive Information Leak)
+
+    Severity: Low
+
+    Description: The server sends a redirect response but also includes a large response body. This may accidentally expose sensitive data like personal information.
+   
+    Affected URL:
+
+        http://ezpay.iium.edu.my/language
+
+        http://ezpay.iium.edu.my/login
+
+    Business Impact: Sensitive information could be leaked through the response body during redirects which increase the risk of data exposure.
+   
+    Classification: CWE‑201
+
+    Recommendation: Ensure redirect responses have minimal or no body content to avoid exposing sensitive data.
+
+    Prevention Strategy: 
+
+        Do not include sensitive data in redirect responses.
+
+        Configure the server to send clean and safe redirects.
+
+   Responsible Team: DevOps
+
+
+9. Cookie Without Secure Flag
+
+10. Cookie No HTTPOnly Flag
+
+11. Cookie without SameSite Attribute
+
+12. Cross-Domain JavaScript Source File Inclusion
+
+13. Authentication Request Identified
 
 
 
@@ -344,4 +566,11 @@ Hanif Asyraf Bin Mohd Sabri
 hanifasyrafms@gmail.com
 
 25-5-2025
+
+
+Mohamad Arman Izuddin Bin Mohamad Nazri
+
+mohaizuddin010@gmail.com
+
+28-5-2025
 
