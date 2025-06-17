@@ -243,168 +243,168 @@ group assignment (HAI)
 
 9. Cookie Without Secure Flag
 
-Severity:Low
-
-Description:
-A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.
-
-Affected URL:
-```
-https://ezpay.iium.edu.my/robots.txt
-```
-Business Impact:
-If this cookie carries session identifiers or sensitive data, it could be intercepted by an attacker via a man-in-the-middle (MITM) attack. This may result in session hijacking or data theft, potentially compromising user accounts and violating data protection policies.
-
-Classification: CWE-614
-
-Recommendation:
-Set the Secure flag on all cookies, especially those that store session tokens or sensitive information. This ensures cookies are only transmitted over encrypted HTTPS connections.
-
-Prevention Strategy
-```
-Review all cookie settings in the application.
-
-Ensure cookies are set with the Secure attribute by default.
-
-Redirect all HTTP requests to HTTPS to enforce encrypted communication.
-```
-
-Responsible team:
-DevOps
+    Severity:Low
+    
+    Description:
+    A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.
+    
+    Affected URL:
+    ```
+    https://ezpay.iium.edu.my/robots.txt
+    ```
+    Business Impact:
+    If this cookie carries session identifiers or sensitive data, it could be intercepted by an attacker via a man-in-the-middle (MITM) attack. This may result in     session hijacking or data theft, potentially compromising user accounts and violating data protection policies.
+    
+    Classification: CWE-614
+    
+    Recommendation:
+    Set the Secure flag on all cookies, especially those that store session tokens or sensitive information. This ensures cookies are only transmitted over            encrypted HTTPS connections.
+    
+    Prevention Strategy
+    ```
+    Review all cookie settings in the application.
+    
+    Ensure cookies are set with the Secure attribute by default.
+    
+    Redirect all HTTP requests to HTTPS to enforce encrypted communication.
+    ```
+    
+    Responsible team:
+    DevOps
      
 10. Cookie No HTTPOnly Flag
-
-Severity:Low
-
-Description:
-A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
-
-Affected URL:
-```
-https://ezpay.iium.edu.my/sitemap.xml
-```
-Business Impact:
-Cookies accessible via JavaScript are vulnerable to theft through XSS (Cross-Site Scripting) attacks. If the stolen cookie is used to maintain user sessions, this could lead to session hijacking, impersonation, and unauthorized access to user accounts.
-
-Classification: CWE-1004
-
-Recommendation:
-Set the HttpOnly attribute for all cookies, especially those related to authentication, sessions, and user data. This prevents the cookie from being accessed by JavaScript.
-
-Prevention Strategy
-```
-Ensure all sensitive cookies are created with the HttpOnly flag.
-
-Configure the application framework or web server to set this by default.
-```
-
-Responsible team:
-Back-End Development
+    
+    Severity:Low
+    
+    Description:
+    A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then     the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
+    
+    Affected URL:
+    ```
+    https://ezpay.iium.edu.my/sitemap.xml
+    ```
+    Business Impact:
+    Cookies accessible via JavaScript are vulnerable to theft through XSS (Cross-Site Scripting) attacks. If the stolen cookie is used to maintain user sessions,      this could lead to session hijacking, impersonation, and unauthorized access to user accounts.
+    
+    Classification: CWE-1004
+    
+    Recommendation:
+    Set the HttpOnly attribute for all cookies, especially those related to authentication, sessions, and user data. This prevents the cookie from being accessed      by JavaScript.
+    
+    Prevention Strategy
+    ```
+    Ensure all sensitive cookies are created with the HttpOnly flag.
+    
+    Configure the application framework or web server to set this by default.
+    ```
+    
+    Responsible team:
+    Back-End Development
 
 11. Cookie without SameSite Attribute
 
-Severity:Low
-
-Description:
-A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.
-
-Affected URL:
-```
-https://ezpay.iium.edu.my/robots.txt
-```
-Business Impact:
-Without the SameSite attribute, attackers can exploit CSRF to perform unauthorized actions on behalf of authenticated users. This could lead to unwanted changes in user settings, data manipulation, or even session hijacking.
-
-Classification: CWE-1275
-
-Recommendation:
-Set the SameSite attribute to either:
-```
-Strict – for sensitive session cookies
-
-Lax – for less strict control where cross-site functionality is needed
-```
-Prevention Strategy
-```
-Update cookie settings in the web framework or server config.
-
-Use:
-    Set-Cookie: cookiesession1=value; SameSite=Strict; Secure; HttpOnly
-```
-
-Responsible team:
-Back-End Development
+    Severity:Low
+    
+    Description:
+    A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is     an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.
+    
+    Affected URL:
+    ```
+    https://ezpay.iium.edu.my/robots.txt
+    ```
+    Business Impact:
+    Without the SameSite attribute, attackers can exploit CSRF to perform unauthorized actions on behalf of authenticated users. This could lead to unwanted           changes in user settings, data manipulation, or even session hijacking.
+    
+    Classification: CWE-1275
+    
+    Recommendation:
+    Set the SameSite attribute to either:
+    ```
+    Strict – for sensitive session cookies
+    
+    Lax – for less strict control where cross-site functionality is needed
+    ```
+    Prevention Strategy
+    ```
+    Update cookie settings in the web framework or server config.
+    
+    Use:
+        Set-Cookie: cookiesession1=value; SameSite=Strict; Secure; HttpOnly
+    ```
+    
+    Responsible team:
+    Back-End Development
 
 12. Cross-Domain JavaScript Source File Inclusion
 
-Severity:Low
-
-Description:
-The page includes one or more script files from a third-party domain.
-
-Affected URL:
-```
-https://ezpay.iium.edu.my/services/student-fee
-```
-Business Impact:
-If a third-party script is modified maliciously or compromised, it can execute arbitrary code in the context of your application, potentially stealing user data or compromising the integrity of the system.
-
-Classification: CWE-829
-
-Recommendation:
-
-```
-Load JavaScript files only from trusted, integrity-verified sources.
-
-If using third-party scripts, enable Subresource Integrity (SRI) to verify content has not been tampered with.
-```
-
-Prevention Strategy
-```
- Use integrity attributes with third-party scripts:
-    <script src="..." integrity="sha384-...=="
-            crossorigin="anonymous"></script>
-
-Host critical scripts locally to avoid external dependency.
-```
-
-Responsible team:
-Front-End Development
+    Severity:Low
+    
+    Description:
+    The page includes one or more script files from a third-party domain.
+    
+    Affected URL:
+    ```
+    https://ezpay.iium.edu.my/services/student-fee
+    ```
+    Business Impact:
+    If a third-party script is modified maliciously or compromised, it can execute arbitrary code in the context of your application, potentially stealing user         data or compromising the integrity of the system.
+    
+    Classification: CWE-829
+    
+    Recommendation:
+    
+    ```
+    Load JavaScript files only from trusted, integrity-verified sources.
+    
+    If using third-party scripts, enable Subresource Integrity (SRI) to verify content has not been tampered with.
+    ```
+    
+    Prevention Strategy
+    ```
+     Use integrity attributes with third-party scripts:
+        <script src="..." integrity="sha384-...=="
+                crossorigin="anonymous"></script>
+    
+    Host critical scripts locally to avoid external dependency.
+    ```
+    
+    Responsible team:
+    Front-End Development
 
 13. Authentication Request Identified
 
-Severity:Informational
-
-Description:
-The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to "Auto-Detect" then this rule will change the authentication to match the request identified.
-
-Affected URL:
-```
-https://ezpay.iium.edu.my/login
-```
-Business Impact:
-This is an informational alert only. However, if login pages are not properly protected (e.g., lack of rate limiting, CAPTCHA, or HTTPS), they may become targets for brute-force or credential stuffing attacks. In this case, no such vulnerability was confirmed.
-
-Classification: CWE-0
-
-Recommendation:
-None required. However, it’s good practice to:
-```
-Log authentication attempts
-
-Protect login forms with CAPTCHA and rate limiting
-
-Always serve them over HTTPS
-```
-Prevention Strategy
-```
-No immediate action needed.
-
-Review login security mechanisms regularly as part of defense-in-depth.
-```
-
-Responsible team:
-Application Security Team
+    Severity:Informational
+    
+    Description:
+    The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant           fields. If the request is in a context which has an Authentication Method set to "Auto-Detect" then this rule will change the authentication to match the          request identified.
+    
+    Affected URL:
+    ```
+    https://ezpay.iium.edu.my/login
+    ```
+    Business Impact:
+    This is an informational alert only. However, if login pages are not properly protected (e.g., lack of rate limiting, CAPTCHA, or HTTPS), they may become          targets for brute-force or credential stuffing attacks. In this case, no such vulnerability was confirmed.
+    
+    Classification: CWE-0
+    
+    Recommendation:
+    None required. However, it’s good practice to:
+    ```
+    Log authentication attempts
+    
+    Protect login forms with CAPTCHA and rate limiting
+    
+    Always serve them over HTTPS
+    ```
+    Prevention Strategy
+    ```
+    No immediate action needed.
+    
+    Review login security mechanisms regularly as part of defense-in-depth.
+    ```
+    
+    Responsible team:
+    Application Security Team
 
 
 
