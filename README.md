@@ -50,13 +50,14 @@ group assignment (HAI)
     Prevention Strategy:
 
         Always define important CSP rules.
+        - (Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; style-src 'self';)
 
         Test your policy with tools like CSP Evaluator.
 
     Responsible Team: DevOps
 
 
-2. Wildcard Directive
+3. Wildcard Directive
 
     Severity: Medium
 
@@ -79,11 +80,13 @@ group assignment (HAI)
         Monitor CSP violation reports 
 
         Work closely with developers to ensure new content is added using allowed sources only.
+        - reviews all new features in development or code to ensure:
+        - No usage of * such as script-src *;
 
     Responsible Team: Security team
 
 
-3. script-src unsafe-inline
+5. script-src unsafe-inline
 
     Severity: Medium
 
@@ -104,6 +107,9 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Use nonces or hashes instead of unsafe-inline.
+        - Backend generates a random nonce on each request
+        - Add to CSP header: Content-Security-Policy: script-src 'self' 'nonce-abc123';
+        - Apply nounce to every <script> tag: <script nonce="abc123">console.log('secure');</script>
 
         Deploy in Report-Only mode first
 
@@ -131,13 +137,15 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Use nonces or hashes instead of unsafe-inline.
+        - Use nounce for inline styles: <style nonce="xyz789">.secure { color: green; }</style>
 
         Move inline styles to external CSS files where possible.
+        - Move all styles to external .css files.
 
     Responsible Team: DevOps
 
 
-5. Cross-Domain Misconfiguration
+6. Cross-Domain Misconfiguration
 
     Severity: Medium
 
@@ -156,13 +164,16 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Use proper authentication and check permissions on all API endpoints.
+        - All API endpoints must require auth tokens
+        - Implement permission checks (role-based access control)
 
         Configure the server to specify allowed domains explicitly in the CORS policy.
+        - Restrict CORS (Laravel): header('Access-Control-Allow-Origin: https://trusted.iium.edu.my');
 
     Responsible Team: Security Team
 
 
-6. HTTP to HTTPS Insecure Transition in Form Post
+8. HTTP to HTTPS Insecure Transition in Form Post
 
     Severity: Medium
 
@@ -181,13 +192,20 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Redirect all HTTP traffic to HTTPS.
+        - Force HTTPS using server redirect (NGINX):
+   
+        - if ($scheme = http) {
+              return 301 https://$host$request_uri;
+          }
 
         Review and update all forms to ensure they are hosted on secure HTTPS pages.
+        - Update form URLs to https://... and ensure they're not embedded in HTTP pages.
+        - <form action="https://ezpay.iium.edu.my/login">
 
     Responsible Team: DevOps
 
 
-7. Strict-Transport-Security Header Not Set
+10. Strict-Transport-Security Header Not Set
 
     Severity: Low
 
@@ -208,13 +226,18 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Implement the HSTS header on all HTTPS responses.
+        - Add HSTS header:
+        - apache: Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        - NGINX: add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
 
         Monitor and ensure no content is served over HTTP.
+        - All assests load via https://
+        - No hardcoded HTTP links exist in templates or configuration
 
     Responsible Team: Web Development 
 
 
-8. Big Redirect Detected (Potential Sensitive Information Leak)
+12. Big Redirect Detected (Potential Sensitive Information Leak)
 
     Severity: Low
 
@@ -235,13 +258,22 @@ group assignment (HAI)
     Prevention Strategy: 
 
         Do not include sensitive data in redirect responses.
-
+        - Avoid embedding user data or error messages in 3xx response pages
+        - What not to do in Laravel: return response("Redirecting user: JohnDoe to /dashboard", 302);
+    
         Configure the server to send clean and safe redirects.
+        - Use proper redirect methods
+
+        - In laravel:
+          - Don't do: return response()->view('home')->setStatusCode(302);
+          - Do: return redirect('/home');
+
+
 
    Responsible Team: DevOps
 
 
-9. Cookie Without Secure Flag
+11. Cookie Without Secure Flag
 
     Severity:Low
     
@@ -272,7 +304,7 @@ group assignment (HAI)
     Responsible team:
     DevOps
      
-10. Cookie No HTTPOnly Flag
+12. Cookie No HTTPOnly Flag
     
     Severity:Low
     
@@ -301,7 +333,7 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
-11. Cookie without SameSite Attribute
+13. Cookie without SameSite Attribute
 
     Severity:Low
     
@@ -335,7 +367,7 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
-12. Cross-Domain JavaScript Source File Inclusion
+14. Cross-Domain JavaScript Source File Inclusion
 
     Severity:Low
     
@@ -371,7 +403,7 @@ group assignment (HAI)
     Responsible team:
     Front-End Development
 
-13. Authentication Request Identified
+15. Authentication Request Identified
 
     Severity:Informational
     
