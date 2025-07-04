@@ -1,6 +1,40 @@
 # weakness_report
 group assignment (HAI)
 
+# Table of Contents for Link 1
+1. [Executive Summary](#executive-summary)
+2. [Summary of findings](#summary-of-findings)
+3. [Detailed Findings](#detailed-findings)
+    - [1. Failure to Define Directive with no Fallback](#1-failure-to-define-directive-with-no-fallback)
+    - [3. Wildcard Directive](#3-wildcard-directive)
+    - [5. script-src unsafe-inline](#5-script-src-unsafe-inline)
+    - [4. style-src unsafe-inline](#4-style-src-unsafe-inline)
+    - [6. Cross-Domain Misconfiguration](#6-cross-domain-misconfiguration)
+    - [8. HTTP to HTTPS Insecure Transition in Form Post](#8-http-to-https-insecure-transition-in-form-post)
+    - [10. Strict-Transport-Security Header Not Set](#10-strict-transport-security-header-not-set)
+    - [12. Big Redirect Detected (Potential Sensitive Information Leak)](#12-big-redirect-detected-potential-sensitive-information-leak)
+    - [11. Cookie Without Secure Flag](#11-cookie-without-secure-flag)
+    - [12. Cookie No HTTPOnly Flag](#12-cookie-no-httponly-flag)
+    - [13. Cookie without SameSite Attribute](#13-cookie-without-samesite-attribute)
+    - [14. Cross-Domain JavaScript Source File Inclusion](#14-cross-domain-javascript-source-file-inclusion)
+    - [15. Authentication Request Identified](#15-authentication-request-identified)
+
+# Table of Contents for Link 2
+1. [Executive Summary](#executive-summary-1)
+2. [Summary of findings](#summary-of-findings-1)
+3. [Detailed Findings](#detailed-findings-1)
+    - [1. Server Version Disclosure](#1-server-version-disclosure)
+    - [2. Absence of Anti‑CSRF Tokens](#2-absence-of-anti‑csrf-tokens)
+    - [3. Content Security Policy (CSP) Header Not Set](#3-content-security-policy-csp-header-not-set)
+    - [4. Subresource Integrity Missing](#4-subresource-integrity-missing)
+    - [5. Vulnerable JS Libraries](#5-vulnerable-js-libraries)
+    - [6. Cookies Without Secure Flags](#6-cookies-without-secure-flags)
+    - [7. Missing Permissions Policy Header](#7-missing-permissions-policy-header)
+    - [8. Missing Cross‑Origin Resource Policy](#8-missing-cross‑origin-resource-policy)
+    - [9. Information Disclosure via JS Comments](#9-information-disclosure-via-js-comments)
+    - [10. HTTPS/TLS Not Enforced](#10-httpstls-not-enforced)
+4. [Recommendations & Next Steps](#recommendations--next-steps)
+5. [Appendix](#appendix)
 
 # Link 1 (http://ezpay.iium.edu.my)
 
@@ -27,7 +61,7 @@ group assignment (HAI)
 
 3. Detailed Findings
 
-1. Failure to Define Directive with no Fallback
+**1. Failure to Define Directive with no Fallback**
 
     Severity: Medium
 
@@ -57,7 +91,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
-3. Wildcard Directive
+**3. Wildcard Directive**
 
     Severity: Medium
 
@@ -86,7 +120,7 @@ group assignment (HAI)
     Responsible Team: Security team
 
 
-5. script-src unsafe-inline
+**5. script-src unsafe-inline**
 
     Severity: Medium
 
@@ -116,7 +150,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
-4. style-src unsafe-inline
+**4. style-src unsafe-inline**
 
     Severity: Medium
 
@@ -145,7 +179,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
-6. Cross-Domain Misconfiguration
+**6. Cross-Domain Misconfiguration**
 
     Severity: Medium
 
@@ -173,7 +207,7 @@ group assignment (HAI)
     Responsible Team: Security Team
 
 
-8. HTTP to HTTPS Insecure Transition in Form Post
+**8. HTTP to HTTPS Insecure Transition in Form Post**
 
     Severity: Medium
 
@@ -205,7 +239,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
-10. Strict-Transport-Security Header Not Set
+**10. Strict-Transport-Security Header Not Set**
 
     Severity: Low
 
@@ -237,7 +271,7 @@ group assignment (HAI)
     Responsible Team: Web Development 
 
 
-12. Big Redirect Detected (Potential Sensitive Information Leak)
+**12. Big Redirect Detected (Potential Sensitive Information Leak)**
 
     Severity: Low
 
@@ -273,7 +307,7 @@ group assignment (HAI)
    Responsible Team: DevOps
 
 
-11. Cookie Without Secure Flag
+**11. Cookie Without Secure Flag**
 
     Severity:Low
     
@@ -304,7 +338,7 @@ group assignment (HAI)
     Responsible team:
     DevOps
      
-12. Cookie No HTTPOnly Flag
+**12. Cookie No HTTPOnly Flag**
     
     Severity:Low
     
@@ -333,8 +367,8 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
-13. Cookie without SameSite Attribute
-
+**13. Cookie without SameSite Attribute**
+    
     Severity:Low
     
     Description:
@@ -367,8 +401,8 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
-14. Cross-Domain JavaScript Source File Inclusion
-
+**14. Cross-Domain JavaScript Source File Inclusion**
+    
     Severity:Low
     
     Description:
@@ -403,8 +437,8 @@ group assignment (HAI)
     Responsible team:
     Front-End Development
 
-15. Authentication Request Identified
-
+**15. Authentication Request Identified**
+    
     Severity:Informational
     
     Description:
@@ -440,6 +474,23 @@ group assignment (HAI)
 
 
 
+# Table of Contents for Link 2
+1. [Executive Summary](#executive-summary-1)
+2. [Summary of findings](#summary-of-findings-1)
+3. [Detailed Findings](#detailed-findings-1)
+    - [1. Server Version Disclosure](#1-server-version-disclosure)
+    - [2. Absence of Anti‑CSRF Tokens](#2-absence-of-anti‑csrf-tokens)
+    - [3. Content Security Policy (CSP) Header Not Set](#3-content-security-policy-csp-header-not-set)
+    - [4. Subresource Integrity Missing](#4-subresource-integrity-missing)
+    - [5. Vulnerable JS Libraries](#5-vulnerable-js-libraries)
+    - [6. Cookies Without Secure Flags](#6-cookies-without-secure-flags)
+    - [7. Missing Permissions Policy Header](#7-missing-permissions-policy-header)
+    - [8. Missing Cross‑Origin Resource Policy](#8-missing-cross‑origin-resource-policy)
+    - [9. Information Disclosure via JS Comments](#9-information-disclosure-via-js-comments)
+    - [10. HTTPS/TLS Not Enforced](#10-httpstls-not-enforced)
+4. [Recommendations & Next Steps](#recommendations--next-steps)
+5. [Appendix](#appendix)
+
 # Link 2 (http://epic.iium.edu.my)
 
 ![image](https://github.com/user-attachments/assets/4563e002-c6f4-40cb-bcd2-da11c83dac33)
@@ -466,7 +517,7 @@ group assignment (HAI)
 | Info       | 6                | Suspicious Comments in JS              |
 
 3. Detailed Findings
-1. Server Version Disclosure
+**1. Server Version Disclosure**
 
     Severity: Low
 
@@ -491,7 +542,7 @@ group assignment (HAI)
     Responsible Team: Infrastructure
     
 
-2. Absence of Anti‑CSRF Tokens
+**2. Absence of Anti‑CSRF Tokens**
 
     Severity: Medium
 
@@ -518,7 +569,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
-3. Content Security Policy (CSP) Header Not Set
+**3. Content Security Policy (CSP) Header Not Set**
 
     Severity: Medium
 
@@ -543,7 +594,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
-4. Subresource Integrity Missing
+**4. Subresource Integrity Missing**
 
     Severity: Medium
 
@@ -570,7 +621,7 @@ group assignment (HAI)
     Responsible Team: Front‑End Dev
     
 
-5. Vulnerable JS Libraries
+**5. Vulnerable JS Libraries**
 
     Severity: Medium
 
@@ -599,7 +650,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
-6. Cookies Without Secure Flags
+**6. Cookies Without Secure Flags**
 
     Severity: Low
 
@@ -626,7 +677,7 @@ group assignment (HAI)
     Responsible Team: Back‑End Dev
     
 
-7. Missing Permissions Policy Header
+**7. Missing Permissions Policy Header**
 
     Severity: Low
 
@@ -649,7 +700,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
-8. Missing Cross‑Origin Resource Policy
+**8. Missing Cross‑Origin Resource Policy**
 
     Severity: Low
 
@@ -672,7 +723,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
-9. Information Disclosure via JS Comments
+**9. Information Disclosure via JS Comments**
 
     Severity: Informational
 
@@ -699,7 +750,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
-10. HTTPS/TLS Not Enforced
+**10. HTTPS/TLS Not Enforced**
 
     Severity: Informational
 
