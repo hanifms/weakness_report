@@ -796,7 +796,7 @@ group assignment (HAI)
 
     Responsible Team: Infrastructure
     
-
+<a name="link-2-recommendations--next-steps"></a>
 4. Recommendations & Next Steps
 
     Immediate Fixes: Address all Medium‑risk issues (CSRF, CSP, SRI, JS libraries) within the next two weeks.
@@ -812,7 +812,7 @@ group assignment (HAI)
     Periodic Reviews: Schedule monthly passive and quarterly active scans.
 
     Penetration Test: Engage a third‑party pen test post‑deployment for deeper coverage.
-
+<a name="link-2-appendix"></a>
 Appendix
 
 OWASP ZAP generated report for this link can be downloaded at the top 
