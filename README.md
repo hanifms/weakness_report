@@ -1,44 +1,46 @@
 # weakness_report
 group assignment (HAI)
 
-# Table of Contents for Link 1
-1. [Executive Summary](#executive-summary)
-2. [Summary of findings](#summary-of-findings)
-3. [Detailed Findings](#detailed-findings)
-    - [1. Failure to Define Directive with no Fallback](#1-failure-to-define-directive-with-no-fallback)
-    - [3. Wildcard Directive](#3-wildcard-directive)
-    - [5. script-src unsafe-inline](#5-script-src-unsafe-inline)
-    - [4. style-src unsafe-inline](#4-style-src-unsafe-inline)
-    - [6. Cross-Domain Misconfiguration](#6-cross-domain-misconfiguration)
-    - [8. HTTP to HTTPS Insecure Transition in Form Post](#8-http-to-https-insecure-transition-in-form-post)
-    - [10. Strict-Transport-Security Header Not Set](#10-strict-transport-security-header-not-set)
-    - [12. Big Redirect Detected (Potential Sensitive Information Leak)](#12-big-redirect-detected-potential-sensitive-information-leak)
-    - [11. Cookie Without Secure Flag](#11-cookie-without-secure-flag)
-    - [12. Cookie No HTTPOnly Flag](#12-cookie-no-httponly-flag)
-    - [13. Cookie without SameSite Attribute](#13-cookie-without-samesite-attribute)
-    - [14. Cross-Domain JavaScript Source File Inclusion](#14-cross-domain-javascript-source-file-inclusion)
-    - [15. Authentication Request Identified](#15-authentication-request-identified)
+## Table of Contents for Link 1
+1. [Executive Summary](#link-1-executive-summary)
+2. [Summary of findings](#link-1-summary-of-findings)
+3. [Detailed Findings](#link-1-detailed-findings)
+    - [1. Failure to Define Directive with no Fallback](#link-1-1-failure-to-define-directive-with-no-fallback)
+    - [3. Wildcard Directive](#link-1-3-wildcard-directive)
+    - [5. script-src unsafe-inline](#link-1-5-script-src-unsafe-inline)
+    - [4. style-src unsafe-inline](#link-1-4-style-src-unsafe-inline)
+    - [6. Cross-Domain Misconfiguration](#link-1-6-cross-domain-misconfiguration)
+    - [8. HTTP to HTTPS Insecure Transition in Form Post](#link-1-8-http-to-https-insecure-transition-in-form-post)
+    - [10. Strict-Transport-Security Header Not Set](#link-1-10-strict-transport-security-header-not-set)
+    - [12. Big Redirect Detected (Potential Sensitive Information Leak)](#link-1-12-big-redirect-detected-potential-sensitive-information-leak)
+    - [11. Cookie Without Secure Flag](#link-1-11-cookie-without-secure-flag)
+    - [12. Cookie No HTTPOnly Flag](#link-1-12-cookie-no-httponly-flag)
+    - [13. Cookie without SameSite Attribute](#link-1-13-cookie-without-samesite-attribute)
+    - [14. Cross-Domain JavaScript Source File Inclusion](#link-1-14-cross-domain-javascript-source-file-inclusion)
+    - [15. Authentication Request Identified](#link-1-15-authentication-request-identified)
 
-# Table of Contents for Link 2
-1. [Executive Summary](#executive-summary-1)
-2. [Summary of findings](#summary-of-findings-1)
-3. [Detailed Findings](#detailed-findings-1)
-    - [1. Server Version Disclosure](#1-server-version-disclosure)
-    - [2. Absence of Anti‑CSRF Tokens](#2-absence-of-anti‑csrf-tokens)
-    - [3. Content Security Policy (CSP) Header Not Set](#3-content-security-policy-csp-header-not-set)
-    - [4. Subresource Integrity Missing](#4-subresource-integrity-missing)
-    - [5. Vulnerable JS Libraries](#5-vulnerable-js-libraries)
-    - [6. Cookies Without Secure Flags](#6-cookies-without-secure-flags)
-    - [7. Missing Permissions Policy Header](#7-missing-permissions-policy-header)
-    - [8. Missing Cross‑Origin Resource Policy](#8-missing-cross‑origin-resource-policy)
-    - [9. Information Disclosure via JS Comments](#9-information-disclosure-via-js-comments)
-    - [10. HTTPS/TLS Not Enforced](#10-httpstls-not-enforced)
-4. [Recommendations & Next Steps](#recommendations--next-steps)
-5. [Appendix](#appendix)
+## Table of Contents for Link 2
+1. [Executive Summary](#link-2-executive-summary)
+2. [Summary of findings](#link-2-summary-of-findings)
+3. [Detailed Findings](#link-2-detailed-findings)
+    - [1. Server Version Disclosure](#link-2-1-server-version-disclosure)
+    - [2. Absence of Anti‑CSRF Tokens](#link-2-2-absence-of-anti‑csrf-tokens)
+    - [3. Content Security Policy (CSP) Header Not Set](#link-2-3-content-security-policy-csp-header-not-set)
+    - [4. Subresource Integrity Missing](#link-2-4-subresource-integrity-missing)
+    - [5. Vulnerable JS Libraries](#link-2-5-vulnerable-js-libraries)
+    - [6. Cookies Without Secure Flags](#link-2-6-cookies-without-secure-flags)
+    - [7. Missing Permissions Policy Header](#link-2-7-missing-permissions-policy-header)
+    - [8. Missing Cross‑Origin Resource Policy](#link-2-8-missing-cross‑origin-resource-policy)
+    - [9. Information Disclosure via JS Comments](#link-2-9-information-disclosure-via-js-comments)
+    - [10. HTTPS/TLS Not Enforced](#link-2-10-httpstls-not-enforced)
+4. [Recommendations & Next Steps](#link-2-recommendations--next-steps)
+5. [Appendix](#link-2-appendix)
 
-# Link 1 (http://ezpay.iium.edu.my)
+<a name="link-1-executive-summary"></a>
+## Link 1 (http://ezpay.iium.edu.my)
 
-1. Executive Summary
+<a name="link-1-summary-of-findings"></a>
+### 1. Executive Summary
 
 | Metric                        | Value   |
 | ----------------------------- | ------- |
@@ -49,7 +51,8 @@ group assignment (HAI)
 | Low-Risk/Informational Issues | 14      |
 | Remediation Status            | Pending |
 
-2. Summary of findings
+<a name="link-1-detailed-findings"></a>
+### 2. Summary of findings
 
 | Risk Level | Number of Issues | Example Vulnerability                        |
 | ---------- | ---------------- | ---------------------------------------------|
@@ -59,8 +62,7 @@ group assignment (HAI)
 | Low        | 7                | Cookie without secure flag                   |
 | Info       | 7                | Information Disclodure - Suspicious comments |
 
-3. Detailed Findings
-
+<a name="link-1-1-failure-to-define-directive-with-no-fallback"></a>
 **1. Failure to Define Directive with no Fallback**
 
     Severity: Medium
@@ -91,6 +93,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
+<a name="link-1-3-wildcard-directive"></a>
 **3. Wildcard Directive**
 
     Severity: Medium
@@ -120,6 +123,7 @@ group assignment (HAI)
     Responsible Team: Security team
 
 
+<a name="link-1-5-script-src-unsafe-inline"></a>
 **5. script-src unsafe-inline**
 
     Severity: Medium
@@ -150,6 +154,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
+<a name="link-1-4-style-src-unsafe-inline"></a>
 **4. style-src unsafe-inline**
 
     Severity: Medium
@@ -179,6 +184,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
+<a name="link-1-6-cross-domain-misconfiguration"></a>
 **6. Cross-Domain Misconfiguration**
 
     Severity: Medium
@@ -207,6 +213,7 @@ group assignment (HAI)
     Responsible Team: Security Team
 
 
+<a name="link-1-8-http-to-https-insecure-transition-in-form-post"></a>
 **8. HTTP to HTTPS Insecure Transition in Form Post**
 
     Severity: Medium
@@ -239,6 +246,7 @@ group assignment (HAI)
     Responsible Team: DevOps
 
 
+<a name="link-1-10-strict-transport-security-header-not-set"></a>
 **10. Strict-Transport-Security Header Not Set**
 
     Severity: Low
@@ -271,6 +279,7 @@ group assignment (HAI)
     Responsible Team: Web Development 
 
 
+<a name="link-1-12-big-redirect-detected-potential-sensitive-information-leak"></a>
 **12. Big Redirect Detected (Potential Sensitive Information Leak)**
 
     Severity: Low
@@ -307,6 +316,7 @@ group assignment (HAI)
    Responsible Team: DevOps
 
 
+<a name="link-1-11-cookie-without-secure-flag"></a>
 **11. Cookie Without Secure Flag**
 
     Severity:Low
@@ -338,6 +348,7 @@ group assignment (HAI)
     Responsible team:
     DevOps
      
+<a name="link-1-12-cookie-no-httponly-flag"></a>
 **12. Cookie No HTTPOnly Flag**
     
     Severity:Low
@@ -367,6 +378,7 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
+<a name="link-1-13-cookie-without-samesite-attribute"></a>
 **13. Cookie without SameSite Attribute**
     
     Severity:Low
@@ -401,6 +413,7 @@ group assignment (HAI)
     Responsible team:
     Back-End Development
 
+<a name="link-1-14-cross-domain-javascript-source-file-inclusion"></a>
 **14. Cross-Domain JavaScript Source File Inclusion**
     
     Severity:Low
@@ -437,6 +450,7 @@ group assignment (HAI)
     Responsible team:
     Front-End Development
 
+<a name="link-1-15-authentication-request-identified"></a>
 **15. Authentication Request Identified**
     
     Severity:Informational
@@ -475,27 +489,27 @@ group assignment (HAI)
 
 
 # Table of Contents for Link 2
-1. [Executive Summary](#executive-summary-1)
-2. [Summary of findings](#summary-of-findings-1)
-3. [Detailed Findings](#detailed-findings-1)
-    - [1. Server Version Disclosure](#1-server-version-disclosure)
-    - [2. Absence of Anti‑CSRF Tokens](#2-absence-of-anti‑csrf-tokens)
-    - [3. Content Security Policy (CSP) Header Not Set](#3-content-security-policy-csp-header-not-set)
-    - [4. Subresource Integrity Missing](#4-subresource-integrity-missing)
-    - [5. Vulnerable JS Libraries](#5-vulnerable-js-libraries)
-    - [6. Cookies Without Secure Flags](#6-cookies-without-secure-flags)
-    - [7. Missing Permissions Policy Header](#7-missing-permissions-policy-header)
-    - [8. Missing Cross‑Origin Resource Policy](#8-missing-cross‑origin-resource-policy)
-    - [9. Information Disclosure via JS Comments](#9-information-disclosure-via-js-comments)
-    - [10. HTTPS/TLS Not Enforced](#10-httpstls-not-enforced)
-4. [Recommendations & Next Steps](#recommendations--next-steps)
-5. [Appendix](#appendix)
+1. [Executive Summary](#link-2-executive-summary)
+2. [Summary of findings](#link-2-summary-of-findings)
+3. [Detailed Findings](#link-2-detailed-findings)
+    - [1. Server Version Disclosure](#link-2-1-server-version-disclosure)
+    - [2. Absence of Anti‑CSRF Tokens](#link-2-2-absence-of-anti‑csrf-tokens)
+    - [3. Content Security Policy (CSP) Header Not Set](#link-2-3-content-security-policy-csp-header-not-set)
+    - [4. Subresource Integrity Missing](#link-2-4-subresource-integrity-missing)
+    - [5. Vulnerable JS Libraries](#link-2-5-vulnerable-js-libraries)
+    - [6. Cookies Without Secure Flags](#link-2-6-cookies-without-secure-flags)
+    - [7. Missing Permissions Policy Header](#link-2-7-missing-permissions-policy-header)
+    - [8. Missing Cross‑Origin Resource Policy](#link-2-8-missing-cross‑origin-resource-policy)
+    - [9. Information Disclosure via JS Comments](#link-2-9-information-disclosure-via-js-comments)
+    - [10. HTTPS/TLS Not Enforced](#link-2-10-httpstls-not-enforced)
+4. [Recommendations & Next Steps](#link-2-recommendations--next-steps)
+5. [Appendix](#link-2-appendix)
 
-# Link 2 (http://epic.iium.edu.my)
+<a name="link-2-executive-summary"></a>
+## Link 2 (http://epic.iium.edu.my)
 
-![image](https://github.com/user-attachments/assets/4563e002-c6f4-40cb-bcd2-da11c83dac33)
-
-1. Executive Summary 
+<a name="link-2-summary-of-findings"></a>
+### 1. Executive Summary
 
 | Metric                        | Value   |
 | ----------------------------- | ------- |
@@ -506,7 +520,8 @@ group assignment (HAI)
 | Low-Risk/Informational Issues | 11      |
 | Remediation Status            | Pending |
 
-2. Summary of findings
+<a name="link-2-detailed-findings"></a>
+### 2. Summary of findings
 
 | Risk Level | Number of Issues | Example Vulnerability                  |
 | ---------- | ---------------- | -------------------------------------- |
@@ -516,7 +531,7 @@ group assignment (HAI)
 | Low        | 5                | Cookie without HttpOnly/SameSite Flags |
 | Info       | 6                | Suspicious Comments in JS              |
 
-3. Detailed Findings
+<a name="link-2-1-server-version-disclosure"></a>
 **1. Server Version Disclosure**
 
     Severity: Low
@@ -542,6 +557,7 @@ group assignment (HAI)
     Responsible Team: Infrastructure
     
 
+<a name="link-2-2-absence-of-anti‑csrf-tokens"></a>
 **2. Absence of Anti‑CSRF Tokens**
 
     Severity: Medium
@@ -569,6 +585,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
+<a name="link-2-3-content-security-policy-csp-header-not-set"></a>
 **3. Content Security Policy (CSP) Header Not Set**
 
     Severity: Medium
@@ -594,6 +611,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
+<a name="link-2-4-subresource-integrity-missing"></a>
 **4. Subresource Integrity Missing**
 
     Severity: Medium
@@ -621,6 +639,7 @@ group assignment (HAI)
     Responsible Team: Front‑End Dev
     
 
+<a name="link-2-5-vulnerable-js-libraries"></a>
 **5. Vulnerable JS Libraries**
 
     Severity: Medium
@@ -650,6 +669,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
+<a name="link-2-6-cookies-without-secure-flags"></a>
 **6. Cookies Without Secure Flags**
 
     Severity: Low
@@ -677,6 +697,7 @@ group assignment (HAI)
     Responsible Team: Back‑End Dev
     
 
+<a name="link-2-7-missing-permissions-policy-header"></a>
 **7. Missing Permissions Policy Header**
 
     Severity: Low
@@ -700,6 +721,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
+<a name="link-2-8-missing-cross-origin-resource-policy"></a>
 **8. Missing Cross‑Origin Resource Policy**
 
     Severity: Low
@@ -723,6 +745,7 @@ group assignment (HAI)
     Responsible Team: DevOps
     
 
+<a name="link-2-9-information-disclosure-via-js-comments"></a>
 **9. Information Disclosure via JS Comments**
 
     Severity: Informational
@@ -750,6 +773,7 @@ group assignment (HAI)
     Responsible Team: Application Dev
     
 
+<a name="link-2-10-httpstls-not-enforced"></a>
 **10. HTTPS/TLS Not Enforced**
 
     Severity: Informational
